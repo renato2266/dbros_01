@@ -1,0 +1,54 @@
+<h1>Editing società - associazione</h1>
+
+<% form_for(@society) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :denominazione %><br />
+    <%= f.text_field :denominazione %>
+  </p>
+  <p>
+    <%= f.label :forma_giuridica %><br />
+    <%= f.text_field :forma_giuridica %>
+  </p>
+  <p>
+    <%= f.label :sede %><br />
+    <%= f.text_field :sede %>
+  </p>
+  <p>
+    <%= f.label :cf_pi %><br />
+    <%= f.text_field :cf_pi %>
+  </p>
+  <p>
+    <%= f.label :descrizione %><br />
+    <%= f.text_area :descrizione %>
+  </p>
+
+
+</p>
+Name:<br/>
+<div style="width:400px;height:400px;overflow-y: scroll; border:1px solid black;">
+	<table border="3">
+			<tr>
+			<td>
+		        <% @names.each do |name|  %>
+		          <%= check_box_tag "society[name_ids][]", name.id, @society.names.include?(name) %>
+		          <%= name.cognome_nome %>
+				  <%= name.luogo_nascita %>
+			      <%= name.data_nascita %> 
+					<br/>	
+		       <%end%>
+		 </td>
+		</tr>
+		</table>
+</div>	
+
+
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @society %> |
+<%= link_to 'Back', societies_path %>

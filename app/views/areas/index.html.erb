@@ -1,0 +1,25 @@
+<h1>Listing areas</h1>
+
+<table>
+  <tr>
+    <th>Area criminale</th>
+    <th>Ambito Criminale</th>
+    <th>Note area</th>
+    <th>Azioni</th>
+  </tr>
+
+<% @areas.each do |area| %>
+  <tr>
+    <td><%=h area.area_criminale %></td>
+    <td><%=h area.ambit_id %></td>
+    <td><%=h area.note_area %></td>
+    <td><%= link_to 'Show', area %>
+    <%= link_to 'Edit', edit_area_path(area) %> 
+    <%= link_to 'Destroy', area, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New area', new_area_path %>

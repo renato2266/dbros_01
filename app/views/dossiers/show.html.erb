@@ -1,0 +1,53 @@
+<p>
+  <b>Numero:</b>
+  <%=h @dossier.numero %>
+</p>
+
+<p>
+  <b>Data:</b>
+  <%=h @dossier.data %>
+</p>
+
+<p>
+  <b>Oggetto:</b>
+  <%=h @dossier.oggetto %>
+</p>
+
+<p><b>
+	<%= link_to "Visualizza documento", @dossier.documento.url%>
+	</b></p>
+	
+	<b>Associazione criminale</b>
+	<ul>
+	    <% @associations.each do |association| %>
+	      <li><%= link_to association.associazione_criminale, :controller => :associations,
+	 		:action => :show, :id => association.id %></li>
+	    <% end %>
+	  </ul>
+
+
+<b>Società - associazioni</b>
+<ul>
+    <% @societies.each do |society| %>
+      <li><%= link_to society.denominazione, :controller => :societies, :action => :show, :id => society.id %></li>
+    <% end %>
+  </ul>
+
+
+<b>Elenco soggetti</b>
+<ul>
+    <% @names.each do |name| %>
+      <li><%= link_to name.cognome_nome, :controller => :names, :action => :show, :id => name.id %></li>
+    <% end %>
+  </ul>
+
+
+<p>
+  <b>Testo:</b>
+  <%=h @dossier.testo %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_dossier_path(@dossier) %> |
+<%= link_to 'Back', dossiers_path %>

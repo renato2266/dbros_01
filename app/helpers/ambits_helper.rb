@@ -1,0 +1,2 @@
+module AmbitsHelper
+end

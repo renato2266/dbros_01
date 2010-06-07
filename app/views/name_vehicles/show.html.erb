@@ -1,0 +1,37 @@
+<p>
+Nome:
+<% if @name.nil? %>
+  Nil!
+<% else %>
+  <b> <%= link_to @name.cognome_nome, @name%></b>
+<%end%>
+</p>
+
+<p>
+Veicolo:
+<% if @vehicle.nil? %>
+  Nil!
+<% else %>
+  <b> <%= link_to @vehicle.targa, @vehicle%></b>
+<%end%>
+</p>
+<p>
+  Tipo relazione:
+  <b><%=h @name_vehicle.tipo_relazione %></b>
+</p>
+Note:
+<%=h @name_vehicle.note %>
+
+<p>
+  <b>Inizio relazione:</b>
+  <%=h @name_vehicle.inizio_relazione %>
+</p>
+
+<p>
+  <b>Fine relazione:</b>
+  <%=h @name_vehicle.fine_relazione %>
+</p>
+
+
+<%= link_to 'Edit', edit_name_vehicle_path(@name_vehicle) %> |
+<%= link_to 'Back', name_vehicles_path %>

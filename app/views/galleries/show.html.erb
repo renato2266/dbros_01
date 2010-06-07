@@ -1,0 +1,32 @@
+<table>
+  <tr>
+    <th>Dati</th>
+    <th>Foto</th>
+  </tr>
+<td>
+<p>
+  <b>Description:</b>
+  <%=h @gallery.description %>
+</p>
+<p>
+  <b>Date:</b>
+  <%=h @gallery.date %>
+</p>
+<ul>
+    <% @names.each do |name| %>
+      <li><%= link_to name.cognome_nome, :controller => :names, :action => :show, :id => name.id %></li>
+    <% end %>
+  </ul>
+</td>
+
+<td>
+<p align=center>
+    <%= link_to image_tag (@gallery.photo.url(:large)), @gallery.photo.url(:original)%>
+  </p>
+</td>
+</tr>
+</table>
+
+
+<%= link_to 'Edit', edit_gallery_path(@gallery) %> |
+<%= link_to 'Back', galleries_path %>

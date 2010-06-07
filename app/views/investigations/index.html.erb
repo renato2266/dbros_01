@@ -1,0 +1,29 @@
+<h1>Lista indagini</h1>
+
+<table>
+  <tr>
+    <th>Indagine</th>
+    <th>Reparto</th>
+    <th>Data inizio</th>
+    <th>Data fine</th>
+    <th>Note indagine</th>
+    <th>Gestione</th>
+  </tr>
+
+<% @investigations.each do |investigation| %>
+  <tr>
+    <td><%= link_to investigation.indagine, investigation %></td>
+    <td><%=h investigation.reparto %></td>
+    <td><%=h investigation.data_inizio %></td>
+    <td><%=h investigation.data_fine %></td>
+    <td><%=h investigation.note_indagine %></td>
+    <td><%= link_to 'Show', investigation %>
+    <%= link_to 'Edit', edit_investigation_path(investigation) %>
+    <%= link_to 'Destroy', investigation, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nuova indagine', new_investigation_path %>

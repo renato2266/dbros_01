@@ -1,0 +1,41 @@
+<h1>Listing galleries</h1>
+
+<% form_tag galleries_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :date => nil %>
+  </p>
+<% end %>
+
+
+<table>
+  <tr>
+    <th>Description</th>
+    <th>Date</th>
+	<th>Foto</th>
+
+	<th>Gestione</th>
+  </tr>
+
+<% @galleries.each do |gallery| %>
+  <tr>
+    <td><%= link_to gallery.description, gallery %></td>
+
+    <td width="15%"><%=h gallery.date %></td>
+	<td width="15%"><p align=center><%= link_to image_tag (gallery.photo.url(:thumb)), gallery %></p></td>
+
+    <td width="15%"><p align=center ><%= link_to 'Show', gallery %>
+    <%= link_to 'Edit', edit_gallery_path(gallery) %>
+    <%= link_to 'Destroy', gallery, :confirm => 'Are you sure?', :method => :delete %></p></td>
+  </tr>
+<% end %>
+</table>
+
+
+</td>
+
+<br />
+
+<%= will_paginate @galleies%>
+
+<%= link_to 'New gallery', new_gallery_path %>

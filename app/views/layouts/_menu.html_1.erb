@@ -1,0 +1,61 @@
+<h2><%= link_to 'Home', :controller => 'home', :action => 'index' %></h2>
+
+        
+          <li>
+            <h3>Area 1</h3>
+            <ul class="links">
+            <li><%= link_to 'Anagrafica', :controller => 'names', :action=> 'index' %></li>  
+            <li><%= link_to 'Photo', :controller => 'photos', :action=> 'index' %></li>
+            <li><%= link_to 'Documenti', :controller => 'dossiers', :action=> 'index' %></li>      
+            <li><%= link_to 'Indagini', :controller => 'investigations', :action=> 'index' %></li>
+            <li><%= link_to 'Ambito', :controller => 'ambits', :action=> 'index' %></li>
+            <li><%= link_to 'Area', :controller => 'areas', :action=> 'index' %></li>
+            <li><%= link_to 'Associazioni', :controller => 'associations', :action=> 'index' %></li>
+
+
+
+            </ul>
+          </li>
+
+          <li>
+            <h3>Area 1</h3>
+            <ul class="links">
+            <li><%= link_to 'Search',:controller => 'names', :action=> 'search' %></li>
+
+            </ul>
+          </li>
+          
+          <li>
+            <h3>Area2</h3>
+            <ul class="links">
+              <li><%= link_to 'Intercettazioni', :controller => 'interceptions', :action=> 'index' %></li>
+              
+              
+              <% if logged_in? %>
+                <p><strong>You are logged in as <%=h current_user.login %></strong></p>
+                <p><%= link_to 'Logout', logout_path %></p>
+              <% else %>
+                <p><strong>You are currently not logged in.</strong></p>
+                <p>
+                  <%= link_to 'Login', login_path %> or
+                  <%= link_to 'Sign Up', signup_path %>
+                </p>
+
+              <% end %>
+            </ul>
+          </li>
+         
+          <li>
+            <h3>Area Admin</h3>
+            <ul class="links">
+            <li><%= link_to 'Users', :controller => 'users', :action=> 'index' %></li>  
+   
+            </ul>
+          </li> 
+          
+          
+          
+        </ul>
+      </ul>
+    </li>
+</ul>

@@ -1,0 +1,231 @@
+<h1>Editing intercettazoini</h1>
+
+<% form_for(@interception) do |f| %>
+  <%= f.error_messages %>
+
+  <table>
+    <tr>
+      <td>
+        <%= f.label :nr_protocollo %><br />
+        <%= f.text_field :nr_protocollo %>
+      </td>
+      <td>
+        <%= f.label :nr_telefono %><br />
+        <%= f.text_field :nr_telefono %>
+      </td>
+      <td>
+        <%= f.label :nr_imei %><br />
+        <%= f.text_field :nr_imei %>
+      </td>
+      <td>
+        <%= f.label :ambientale %><br />
+        <%= f.text_field :ambientale %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :apparato %><br />
+        <%= f.text_field :apparato %>
+      </td>
+      <td>
+        <%= f.label :postazione %><br />
+        <%= f.text_field :postazione %>
+      </td>
+      <td>
+        <%= f.label :borchia %><br />
+        <%= f.text_field :borchia %>
+      </td>
+      <td>
+        <%= f.label :P_P %><br />
+        <%= f.text_field :P_P %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :decreto %><br />
+        <%= f.text_field :decreto %>
+      </td>
+      <td>
+        <%= f.label :ag %><br />
+        <%= f.text_field :ag %>
+      <td>
+        <%= f.label :data_attivazione %><br />
+        <%= f.date_select :data_attivazione %>
+      </td>
+      <td>
+        <%= f.label :data_termine %><br />
+        <%= f.date_select :data_termine %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :data_decreto %><br />
+        <%= f.date_select :data_decreto %>
+      </td>
+      <td>
+        <%= f.label :scadenza %><br/>
+        <%= f.date_select :scadenza %>
+      </td>
+      <td>
+        <%= f.label :in_scadenza %><br/>
+        <%= f.check_box :in_scadenza %>
+      <td>
+        <%= f.label :cessata %><br />
+        <%= f.check_box :cessata %>
+      </td>
+      </td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td>
+        <%= f.label :ln_tim %><br />
+        <%= f.text_field :ln_tim %>
+      </td>
+      <td>
+        <%= f.label :ln_vodafone %><br />
+        <%= f.text_field :ln_vodafone %>
+      </td>
+      <td>
+        <%= f.label :ln_wind %><br />
+        <%= f.text_field :ln_wind %>
+      </td>
+      <td>
+        <%= f.label :ln_sparkle %><br />
+        <%= f.text_field :ln_sparkle %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :wind_int %><br />
+        <%= f.text_field :wind_int %>
+      </td>
+      <td>
+        <%= f.label :ln_infostrada %><br />
+        <%= f.text_field :ln_infostrada %>
+      </td>
+      <td>
+        <%= f.label :ln_CeW %><br />
+        <%= f.text_field :ln_CeW %>
+      </td>
+      <td>
+        <%= f.label :ln_eutelia %><br />
+        <%= f.text_field :ln_eutelia %>
+      </td>
+    <tr>
+      <td>
+        <%= f.label :ln_telecom %><br />
+        <%= f.text_field :ln_telecom %>
+      </td>
+      <td>
+        <%= f.label :ln_bt %><br />
+        <%= f.text_field :ln_bt %>
+      </td>
+
+      <td>
+        <%= f.label :ln_albacom %><br />
+        <%= f.text_field :ln_albacom %>
+      </td>
+      <td>
+        <%= f.label :ln_h3g %><br />
+        <%= f.text_field :ln_h3g %>
+      </td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :nr_cd_dvd %><br />
+        <%= f.text_field :nr_cd_dvd %>
+      </td>
+      <td>
+        <%= f.label :cd_dvd_atti %><br />
+        <%= f.check_box :cd_dvd_atti %>
+      </td>
+      <td>
+        <%= f.label :verbale_inizio %><br />
+        <%= f.check_box :verbale_inizio %>
+      </td>
+      <td>
+        <%= f.label :verbale_fine %><br />
+        <%= f.check_box :verbale_fine %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :brogliaccio %><br />
+        <%= f.check_box :brogliaccio %>
+      </td>
+      <td>
+        <%= f.label :deposito_cd_dvd %><br />
+        <%= f.check_box :deposito_cd_dvd %>
+      </td>
+      <td>
+        <%= f.label :deposito_gps %><br />
+        <%= f.check_box :deposito_gps %>
+      </td>
+      <td>
+        <%= f.label :positioning %><br />
+        <%= f.check_box :positioning %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :e_mail_appoggio %><br />
+        <%= f.text_field :e_mail_appoggio %>
+      </td>
+      <td>
+        <%= f.label :rif_wind %><br />
+        <%= f.text_field :rif_wind %>
+      </td>
+      <td>
+        <%= f.label :rif_vodafone %><br />
+        <%= f.text_field :rif_vodafone %>
+      </td>
+      <td>
+        <%= f.label :e_mail_positioning %><br />
+        <%= f.text_field :e_mail_positioning %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :procedura %><br />
+        <%= f.text_field :procedura %>
+      </td>
+      <td>
+        <%= f.label :alias_linea %><br />
+        <%= f.text_field :alias_linea %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :operatore %><br />
+        <%= f.text_field :operatore %>
+      </td>
+      <td>
+        <%= f.label :magistratro %><br />
+        <%= f.text_field :magistratro %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+
+                  <%= f.label :name_id %><br />
+          <%= f.collection_select :name_id,  Name.find(:all, :order =>"cognome_nome ASC"), :id, :cognome_nome, :include_blank=>true %>
+      </td>
+      <td>
+          <%= f.label :investigation_id %><br />
+          <%= f.collection_select :investigation_id, Investigation.find(:all, :order => "indagine ASC"), :id, :indagine, :include_blank=>true %>
+      </td>
+    </tr>
+  </table>
+  <td>
+
+    <%= f.submit 'Update' %>
+  </td>
+<% end %>
+
+<%= link_to 'Show', @interception %> |
+<%= link_to 'Back', interceptions_path %>

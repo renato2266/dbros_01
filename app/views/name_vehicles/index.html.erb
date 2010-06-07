@@ -1,0 +1,39 @@
+<h1>Lista collegamenti nomi e veicoli</h1>
+
+<% form_tag name_vehicles_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search"%>
+  </p>
+<% end %>
+
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Vehicle</th>
+    <th>Tipo relazione</th>
+    <th>Inizio relazione</th>
+    <th>Fine relazione</th>
+	<th>Edit</th>	
+  </tr>
+
+<% @name_vehicles.each do |name_vehicle| %>
+  <tr>
+    <td><%= link_to name_vehicle.name.cognome_nome, :controller => :names, :action => :show, :id => name_vehicle.name.id%></td>
+    <td><%= link_to name_vehicle.vehicle.targa, :controller => :vehicles, :action => :show, :id => name_vehicle.vehicle.id%></td>
+    <td><%=h name_vehicle.tipo_relazione %></td>
+    <td><%=h name_vehicle.inizio_relazione %></td>
+    <td><%=h name_vehicle.fine_relazione %></td>
+    <td><%= link_to 'Show', name_vehicle %>
+    <%= link_to 'Edit', edit_name_vehicle_path(name_vehicle) %>
+    <%= link_to 'Destroy', name_vehicle, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= will_paginate @name_vehicles%>
+
+<%= link_to 'New name_vehicle', new_name_vehicle_path %>

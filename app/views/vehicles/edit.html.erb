@@ -1,0 +1,39 @@
+<h1>Editing vehicle</h1>
+
+<% form_for(@vehicle) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :tipo %><br />
+    <%= f.text_field :tipo %>
+  </p>
+  <p>
+    <%= f.label :targa %><br />
+    <%= f.text_field :targa %>
+  </p>
+  <p>
+    <%= f.label :modello %><br />
+    <%= f.text_field :modello %>
+  </p>
+  <p>
+    <%= f.label :colore %><br />
+    <%= f.text_field :colore %>
+  </p>
+  <p>
+    <%= f.label :note %><br />
+    <%= f.text_area :note %>
+  </p>
+
+		</tr>
+		</table>
+</div>
+
+
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @vehicle %> |
+<%= link_to 'Back', vehicles_path %>

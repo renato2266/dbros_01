@@ -1,0 +1,23 @@
+<h1>Listing fascicles</h1>
+
+<table>
+  <tr>
+    <th>Numero</th>
+    <th>Note</th>
+	<th>Edidt</th>
+  </tr>
+
+<% @fascicles.each do |fascicle| %>
+  <tr>
+    <td width ="25%" align="center"><%= link_to fascicle.numero, fascicle %></td>
+    <td><%=h fascicle.note %></td>
+    <td width ="25%"><%= link_to 'Show', fascicle %>
+    <%= link_to 'Edit', edit_fascicle_path(fascicle) %>
+    <%= link_to 'Destroy', fascicle, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New fascicle', new_fascicle_path %>

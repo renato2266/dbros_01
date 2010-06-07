@@ -1,0 +1,19 @@
+<h1>New ambit</h1>
+
+<% form_for(@ambit) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :ambito_criminale %><br />
+    <%= f.text_field :ambito_criminale %>
+  </p>
+  <p>
+    <%= f.label :note_ambito %><br />
+    <%= f.text_area :note_ambito %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', ambits_path %>

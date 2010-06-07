@@ -1,0 +1,67 @@
+<h1>Editing dossier</h1>
+
+<table>
+  <tr>
+	<td>
+<% form_for @dossier, :html => { :multipart => true } do |f| %>
+  <%= f.error_messages %>
+
+<p>
+ <%= f.file_field :documento %>
+</p>
+
+  <p>
+    <%= f.label :numero %><br />
+    <%= f.text_field :numero %>
+  </p>
+  <p>
+    <%= f.label :data %><br />
+    <%= f.date_select :data %>
+  </p>
+  <p>
+    <%= f.label :oggetto %><br />
+    <%= f.text_area :oggetto %>
+  </p>
+  <p>
+    <%= f.label :testo %><br />
+    <%= f.text_area :testo %>
+  </p>
+</td>
+
+	<td>
+		Name:<br/>
+		<div style="width:400px;height:400px;overflow-y: scroll; border:1px solid black;">
+			<table border="3">
+					<tr>
+					<td>
+				        <% @names.each do |name|  %>
+				          <%= check_box_tag "dossier[name_ids][]", name.id, @dossier.names.include?(name) %>
+				          <%= name.cognome_nome %>
+						  <%= name.luogo_nascita %>
+					      <%= name.data_nascita %> 
+							<br/>	
+				       <%end%>
+				 </td>
+				</tr>
+				</table>
+		</div>
+<p>
+	<%= f.label :societies %><br />
+	<%= f.collection_select :society_ids, @societies, :id, :denominazione, {}, :multiple => true%>
+ </p>
+
+<p>
+	<%= f.label :associations %><br />
+	<%= f.collection_select :association_ids, @associations, :id, :associazione_criminale, {}, :multiple => true%>
+ </p>
+</td>
+  </tr>
+</table>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @dossier %> |
+<%= link_to 'Back', dossiers_path %>

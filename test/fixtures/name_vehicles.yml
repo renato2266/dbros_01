@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name_id: 1
+  vehicle_id: 1
+  tipo_relazione: MyString
+  inizio_relazione: 2010-06-03
+  fine_relazione: 2010-06-03
+
+two:
+  name_id: 1
+  vehicle_id: 1
+  tipo_relazione: MyString
+  inizio_relazione: 2010-06-03
+  fine_relazione: 2010-06-03

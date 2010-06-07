@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  tipo: MyString
+  targa: MyString
+  modello: MyString
+  colore: MyString
+  note: MyText
+
+two:
+  tipo: MyString
+  targa: MyString
+  modello: MyString
+  colore: MyString
+  note: MyText

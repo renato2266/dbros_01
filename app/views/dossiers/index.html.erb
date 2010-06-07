@@ -1,0 +1,36 @@
+<h1>Listing dossiers</h1>
+
+<% form_tag dossiers_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :date => nil %>
+  </p>
+<% end %>
+
+<table>
+  <tr>
+    <th>Numero</th>
+    <th>Data</th>
+    <th>Oggetto</th>
+    
+	<th>Gestione</th>
+  </tr>
+
+<% @dossiers.each do |dossier| %>
+  <tr>
+    <td><%=link_to dossier.numero, dossier %></td>
+    <td width="13%"><%=link_to dossier.data, dossier %></td>
+    <td><%=h dossier.oggetto %></td>
+   
+    <td width="13%"><%= link_to 'Show', dossier %>
+    <%= link_to 'Edit', edit_dossier_path(dossier) %>
+    <%= link_to 'Destroy', dossier, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= will_paginate @dossiers%>
+
+<%= link_to 'New dossier', new_dossier_path %>

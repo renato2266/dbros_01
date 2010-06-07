@@ -1,0 +1,13 @@
+
+<p><h2>User : <%= @user.login %></h2></p>
+
+<p><%= @user.email %></p>
+
+<p>
+    <% @roles.each do |role| %>
+      <li><%= link_to role.name, :controller => :roles, :action => :show, :id => role.id %></li>
+    <% end %>
+</p>
+
+
+

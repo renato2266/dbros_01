@@ -1,0 +1,24 @@
+<h1>Editing area</h1>
+
+<% form_for(@area) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :area_criminale %><br />
+    <%= f.text_field :area_criminale %>
+  </p>
+    <p>
+        <%= f.label :ambit_id %><br />
+        <%= f.collection_select :ambit_id, Ambit.find(:all), :id, :ambito_criminale, :include_blank=>true%> <%= link_to 'New' , new_ambit_path %>
+      </p>
+  <p>
+    <%= f.label :note_area %><br />
+    <%= f.text_area :note_area %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @area %> |
+<%= link_to 'Back', areas_path %>

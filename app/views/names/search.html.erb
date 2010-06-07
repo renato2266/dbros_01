@@ -1,0 +1,104 @@
+<% form_tag "show_search_results", :method => 'get' do %>
+  <table>
+    <tr>
+      <td>
+        <label>Cognome e nome:<br/>
+          <%= text_field :search_fields, "cognome_nome", :id => "cognome_nome" %>
+        </label>
+      </td>
+      <td>
+        <label>Luogo nascita:<br/>
+          <%= text_field :search_fields, "luogo_nascita",:id => "luogo_nascita" %>
+        </label>
+      </td>
+  </tr>
+  <tr>
+      <td>
+        <label>Data nascita:<br/>
+          <%= text_field :search_fields, "data_nascita",:id => "data_nascita" %>
+        </label>
+      </td>
+      <td>
+        <label>Residenza:<br/>
+          <%= text_field :search_fields, "residenza",:id => "residenza" %>
+        </label>
+      </td>
+  </tr>
+  <tr>
+      <td>
+        <label>Via:<br/>
+          <%= text_field :search_fields, "via",:id => "via" %>
+        </label>
+      </td>
+      <td>
+        <label>Domicilio:<br/>
+          <%= text_field :search_fields, "domicilio",:id => "domicilio" %>
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label>CF:<br/>
+          <%= text_field :search_fields, "cod_fiscale",:id => "cod_fiscale" %>
+        </label>
+      </td>
+      <td>
+        <label>Cittadinanza:<br/>
+          <%= text_field :search_fields, "cittadinanza",:id => "cittadinanza" %>
+        </label>
+      </td>
+  </tr>
+  <tr>
+      <td>
+        <label>Professione:<br/>
+          <%= text_field :search_fields, "professione",:id => "professione" %>
+        </label>
+      </td>>
+      <td>
+        <label>Alias:<br/>
+          <%= text_field :search_fields, "alias",:id => "alias" %>
+        </label>
+      </td>
+  </tr>
+  <tr>
+      <td>
+        <label>Soprannome:<br/>
+          <%= text_field :search_fields, "soprannome",:id => "soprannome" %>
+        </label>
+      </td>
+	<td>
+	    <label>Ambito:<br/>
+	      	 <%= text_field :search_fields, "ambito_criminale", :id => "ambito_criminale" %>
+	        </label>
+	  </td>
+  </tr>
+  <td>
+    <label>Area:<br/>
+      	 <%= text_field :search_fields, "area_criminale", :id => "area_criminale" %>
+        </label>
+  </td>
+	<td>
+	    <label>Associazione:<br/>
+	      	 <%= text_field :search_fields, "associazione_criminale", :id => "associazione_criminale" %>
+	        </label>
+	  </td>
+  <tr>
+  </tr>
+  <tr>
+      <td>
+        <label>Note generali:<br/>
+          <%= text_area :search_fields, "note_generali",:id => "note_generali" %>
+        </label>
+      </td>
+
+      <td>
+        <label>note associazione:<br/>
+          <%= text_area :search_fields, "note_associazione",:id => "note_associazione" %>
+        </label>
+      </td>
+    </tr>
+
+  </table>
+
+  <%= submit_tag "Search" %>
+<% end %>

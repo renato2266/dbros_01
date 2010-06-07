@@ -1,0 +1,28 @@
+<p>
+  <b>Numero:</b>
+  <%=h @fascicle.numero %>
+</p>
+
+<p>
+  <b>Note:</b>
+  <%=h @fascicle.note %>
+</p>
+
+
+<b>Elenco soggetti</b>
+<ul>
+    <% @names.each do |name| %>
+      <li><%= link_to name.cognome_nome, :controller => :names, :action => :show, :id => name.id %></li>
+    <% end %>
+  </ul>
+
+<b>Elenco società - associazioni</b>
+<ul>
+    <% @societies.each do |society| %>
+      <li><%= link_to society.denominazione, :controller => :societies, :action => :show, :id => society.id %></li>
+    <% end %>
+  </ul>
+
+
+<%= link_to 'Edit', edit_fascicle_path(@fascicle) %> |
+<%= link_to 'Back', fascicles_path %>

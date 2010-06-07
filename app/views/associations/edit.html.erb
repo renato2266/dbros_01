@@ -1,0 +1,24 @@
+<h1>Editing association</h1>
+
+<% form_for(@association) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :associazione_criminale %><br />
+    <%= f.text_field :associazione_criminale %>
+  </p>
+    <p>
+     <%= f.label :area_id %><br />
+        <%= f.collection_select :area_id, Area.find(:all), :id, :area_criminale, :include_blank=>true%>
+  </p>
+  <p>
+    <%= f.label :note_associazione %><br />
+    <%= f.text_area :note_associazione %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @association %> |
+<%= link_to 'Back', associations_path %>

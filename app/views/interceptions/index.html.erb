@@ -1,0 +1,35 @@
+<h1>Listing interceptions</h1>
+
+<table>
+  <tr>
+    <th>Nr protocollo</th>
+    <th>Nr telefono</th>
+    <th>Nr imei</th>
+    <th>Ambientale</th>
+    <th>Apparato</th>
+    <th>Postazione</th>
+    <th> Gestione </th>
+
+    
+  </tr>
+
+<% @interceptions.each do |interception| %>
+  <tr>
+ 
+    <td><%= link_to interception.nr_protocollo, interception %></td>
+    <td><%=h interception.nr_telefono %></td>
+    <td><%=h interception.nr_imei %></td>
+    <td><%=h interception.ambientale %></td>
+    <td><%=h interception.apparato %></td>
+    <td><%=h interception.postazione %></td>
+    
+    <td><%= link_to 'Show', interception %>
+    <%= link_to 'Edit', edit_interception_path(interception) %>
+    <%= link_to 'Destroy', interception, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New interception', new_interception_path %>

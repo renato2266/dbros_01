@@ -1,0 +1,25 @@
+<h1>New association</h1>
+
+<% form_for(@association) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :associazione_criminale %><br />
+    <%= f.text_field :associazione_criminale %>
+  </p>
+    <p>
+        <%= f.label :area_id %><br />
+        <%= f.collection_select :area_id, Area.find(:all, :order =>'area_criminale ASC'), :id, :area_criminale, :include_blank=>true%>
+        <%= link_to 'New' , new_area_path %>
+      </p>
+
+  <p>
+    <%= f.label :note_associazione %><br />
+    <%= f.text_area :note_associazione %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', associations_path %>

@@ -1,0 +1,38 @@
+<h1>Listing societies</h1>
+
+<% form_tag societies_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :date => nil %>
+  </p>
+<% end %>
+
+<table>
+  <tr>
+    <th>Denominazione</th>
+    <th>Forma giuridica</th>
+    <th>Sede</th>
+    <th>Cf pi</th>
+    <th>Descrizione</th>
+<th>Edit</th>
+  </tr>
+
+<% @societies.each do |society| %>
+  <tr>
+    <td><%= link_to society.denominazione, society %></td>
+    <td><%=h society.forma_giuridica %></td>
+    <td><%=h society.sede %></td>
+    <td><%=h society.cf_pi %></td>
+    <td><%=h society.descrizione %></td>
+    <td><%= link_to 'Show', society %>
+    <%= link_to 'Edit', edit_society_path(society) %>
+    <%= link_to 'Destroy', society, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= will_paginate @societies%>
+
+<%= link_to 'New society', new_society_path %>

@@ -1,0 +1,47 @@
+<p>
+  Associazione criminale:
+  <b><%=h @association.associazione_criminale %>  </b>
+
+</p>
+<p>
+  Area :
+  <% if @area.nil? %>
+    Nil!
+  <% else %>
+    <b> <%=h @area.area_criminale %></b>
+  <%end%>
+</p>
+
+<p>
+  Note associazione:
+  <b><%=h @association.note_associazione %>  </b>
+</p>
+
+
+<table>
+	<th>Documenti</th>
+	<th>Numero</th>
+	<th>Data</th>
+	<th>Oggetto</th>
+	<tr>
+		<% @dossiers.each do |dossier|%>
+		<td><%= link_to "Documento", dossier, :controller => :dossiers, :action => :show, :id => dossier.id%></td>
+		<td><%= dossier.numero%></td>
+		<td width=90px><%= dossier.data%></td>
+		<td><%= dossier.oggetto%></td><br>
+		</tr>
+		<%end%>
+	</table>
+	
+	<table>
+		<td>
+	    <% @names.each do |name|  %>
+	      <li><%= link_to name.cognome_nome,  :controller => :names, :action => :show, :id => name.id %></li>
+	
+	    <% end %>
+	</td>
+	</table>
+
+
+<%= link_to 'Edit', edit_association_path(@association) %> |
+<%= link_to 'Back', associations_path %>

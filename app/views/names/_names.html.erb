@@ -1,0 +1,35 @@
+<table>
+  <tr>
+    <th>Cognome nome</th>
+    <th>Luogo nascita</th>
+    <th>Data nascita</th>
+    <th>Residenza</th>
+    <th>Soprannome</th>
+    <th>Alias</th>
+    <th>Gestione</th>
+
+  </tr>
+
+
+
+<% names.each do |name| %>
+  <tr>
+    <td><%= link_to name.cognome_nome, name %></td>
+    <td><%=h name.luogo_nascita %></td>
+    <td><%=h name.data_nascita %></td>
+    <td><%=h name.residenza %></td>
+    <td><%=h name.soprannome %></td>
+    <td><%=h name.alias %></td>
+
+
+
+
+    <td><%= link_to 'Show', name %>
+    <%= link_to 'Edit', edit_name_path(name) %>
+    <%= link_to 'Destroy', name, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+
+</table>
+
+

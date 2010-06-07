@@ -1,0 +1,192 @@
+<table>
+  <tr>
+    <th>Dati anagrafici</th>
+    <th>Note</th>
+    <th>Photo</th>
+  </tr>
+  <tr>
+    <td width ="33%">
+      <p>
+        Cognome nome:
+        <b><%=h @name.cognome_nome %></b>
+      </p>
+      <p>
+        Luogo nascita:
+        <b><%=h @name.luogo_nascita %></b>
+      </p>
+      <p>
+        Data nascita:
+        <b><%=h @name.data_nascita %></b>
+      </p>
+      <p>
+        Cod fiscale:
+        <b><%=h @name.cod_fiscale %></b>
+      </p>
+      <p>
+        Residenza:
+        <b><%=h @name.residenza %></b>
+      </p>
+      <p>
+        Via:
+        <b><%=h @name.via %></b>
+      </p>
+      <p>
+        Domicilio:
+        <b><%=h @name.domicilio %></b>
+      </p>
+      <p>
+        Cittadinanza:
+        <b><%=h @name.cittadinanza %> </b>
+      </p>
+      <p>
+        Professione:
+        <b><%=h @name.professione %> </b>
+      </p>
+      <p>
+        Soprannome:
+        <b><%=h @name.soprannome %> </b>
+      </p>
+      <p>
+        Alias:
+        <b><%=h @name.alias %> </b>
+      </p>
+      <p>
+        Ambito criminale:
+        <% if @ambit.nil? %>
+          Nil!
+        <% else %>
+          <b> <%=h @ambit.ambito_criminale%></b>
+        <%end%>
+      <p>
+        Area :
+        <% if @area.nil? %>
+          Nil!
+        <% else %>
+          <b> <%=h @area.area_criminale %></b>
+        <%end%>
+      </p>
+      <p>
+        Associazione:
+        <% if @association.nil? %>
+          Nil!
+        <% else %>
+          <b><%=h @association.associazione_criminale%></b>
+        <%end%>
+      </p>
+
+<p>
+	<% if @fascicles.nil? %>
+      Nil!
+    <% else %>
+
+	<% @fascicles.each do |fascicle| %>
+	Numero fascicolo:
+      <%= link_to fascicle.numero, :controller => :fascicles, :action => :show, :id => fascicle.id %><br/>
+	<%end%>
+	<%end%>
+</p>
+
+
+    </td>
+    <td>
+      <p>
+        Note generali:
+        <b><%=h @name.note_generali %> </b>
+      </p>
+    <td>
+      <p align=center>
+        <%= image_tag @name.photo.url(:small) %>
+      </p>
+    </td>
+  </tr>
+</table>
+<table>
+  <th>Soggetti in relazione</th>
+  <th>Indagini</th>
+  <tr>
+    <td width ="50%">
+      <ul>
+        <% @related_names.each do |related| %>
+          <li><%= link_to related.cognome_nome, :controller => :names, :action => :show, :id => related.id %></li>
+        <% end %>
+      </ul>
+    </td>
+    <td>
+      <ul>
+        <% @investigations.each do |investigation| %>
+          <li><%= link_to investigation.indagine, :controller => :investigations, :action => :show, :id => investigation.id %>
+	
+	- Reparto: <b><%=investigation.reparto%></b>
+	
+	</li>
+        <% end %>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+<table>
+<th>Società - associazioni</th>
+<th>Forma giuridica</th>
+<th>Sede</th>
+<tr>
+	<% @societies.each do |society|%>
+		<td><%= link_to society.denominazione, society, :controller => :societies, :action => :show, :id => society.id%></td>
+		<td><%= society.forma_giuridica%></td>
+		<td><%= society.sede%></td>
+		<br>
+		</tr>
+		<%end%>
+</td>
+</tr>
+</table>
+
+
+<table>
+	<th>Documenti</th>
+	<th>Numero</th>
+	<th>Data</th>
+	<th>Oggetto</th>
+	<tr>
+		<% @dossiers.each do |dossier|%>
+		<td><%= link_to "Documento", dossier, :controller => :dossiers, :action => :show, :id => dossier.id%></td>
+		<td><%= dossier.numero%></td>
+		<td width=90px><%= dossier.data%></td>
+		<td><%= dossier.oggetto%></td><br>
+		</tr>
+		<%end%>
+	</table>
+	
+	<table>
+
+	<th>Gallery</th>
+	<tr>
+	<td>
+		<% @galleries.each do |gallery|%>
+		<%= link_to image_tag (gallery.photo.url(:thumb)), gallery%>
+		<%end%>
+	</td>
+	</tr>
+</table>
+
+<table>
+	<th>Veicolo</th>
+	<th>targa</th>
+	<th>modello</th>
+	<th>colore</th>
+	<tr>
+		<% @vehicles.each do |vehicle|%>
+		<td><%= link_to vehicle.tipo, :controller => :vehicles, :action => :show, :id => vehicle.id%></td>
+		<td><%= vehicle.targa%></td>
+		<td><%= vehicle.modello%></td>
+		<td><%= vehicle.colore%></td><br>
+		</tr>
+		<%end%>
+	</table>
+
+
+
+
+
+<%= link_to 'Edit', edit_name_path(@name) %> |
+<%= link_to 'Back', names_path %>

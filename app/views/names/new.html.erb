@@ -1,0 +1,114 @@
+<h1>Nuovo soggetto</h1>
+
+<% form_for @name, :html => { :multipart => true } do |f| %>
+  <%= f.error_messages %>
+  <table>
+    <tr>
+      <td>
+        <%= f.label :cognome_nome %><br />
+        <%= f.text_field :cognome_nome %>
+      </td>
+      <td>
+        <%= f.label :luogo_nascita %><br />
+        <%= f.text_field :luogo_nascita %>
+      </td>
+  </tr>
+   <tr>
+      <td>
+        <%= f.label :data_nascita %><br />
+        <%= f.date_select :data_nascita, :include_blank => true, :start_year => 1914, :use_month_numbers => true %>
+      </td>
+      <td>
+        <%= f.label :cod_fiscale %><br />
+        <%= f.text_field :cod_fiscale %>
+      </td>
+  </tr>
+   <tr>
+      <td>
+        <%= f.label :residenza %><br />
+        <%= f.text_field :residenza %>
+      </td>
+      <td>
+        <%= f.label :via %><br />
+        <%= f.text_field :via %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :domicilio %><br />
+        <%= f.text_field :domicilio %>
+      </td>
+      <td>
+        <%= f.label :cittadinanza %><br />
+        <%= f.text_field :cittadinanza %>
+      </td>
+  </tr>
+   <tr>
+      <td>
+        <%= f.label :professione %><br />
+        <%= f.text_field :professione %>
+      </td>
+      <td>
+        <%= f.label :soprannome %><br />
+        <%= f.text_field :soprannome %>
+      </td>
+  </tr>
+   <tr>
+      <td>
+        <%= f.label :alias %><br />
+        <%= f.text_field :alias %>
+      </td>
+      <td>
+        <%= f.label :ambit_id %><br />
+        <%= f.collection_select :ambit_id, @ambits, :id, :ambito_criminale, :include_blank=>true%>
+      </td>
+  </tr>
+   <tr>
+      <td>
+        <%= f.label :area_id %><br />
+        <%= f.collection_select :area_id, @areas, :id, :area_criminale, :include_blank=>true%>
+      </td>
+      <td>
+        <%= f.label :association_id %><br />
+        <%= f.collection_select :association_id, @associations, :id, :associazione_criminale, :include_blank=>true%>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :note_generali %><br />
+        <%= f.text_area :note_generali %>
+      </td>
+      <td>
+	Fotografia:<br/>
+        <%= f.file_field :photo %>
+      </td>
+  </tr>
+   <tr>
+      <td>
+	Indagini:<br/>
+        <% @investigations.each do |investigation|  %>
+          <%= check_box_tag "name[investigation_ids][]", investigation.id, @name.investigations.include?(investigation) %>
+          <%= investigation.indagine %>
+			- Reparto: <b><%=investigation.reparto%></b><br/>
+        <%end%>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Related names</b><br />
+        <%= f.collection_select(:related_name_ids, @names, :id, :cognome_nome, {}, :multiple => true) %>
+      </td>
+	<td>
+	  
+		
+ 	
+	</td>
+
+    </tr>
+  </table>
+  <td>
+    <%= f.submit 'Create' %>
+  </td>
+<% end %>
+
+<%= link_to 'Back', names_path %>

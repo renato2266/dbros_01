@@ -1,0 +1,23 @@
+<h1>Listing ambits</h1>
+
+<table>
+  <tr>
+    <th>Ambito criminale</th>
+    <th>Note ambito</th>
+    <th>Azioni</th>
+  </tr>
+
+<% @ambits.each do |ambit| %>
+  <tr>
+    <td><%=h ambit.ambito_criminale %></td>
+    <td><%=h ambit.note_ambito %></td>
+    <td><%= link_to 'Show', ambit %>
+    <%= link_to 'Edit', edit_ambit_path(ambit) %>
+    <%= link_to 'Destroy', ambit, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New ambit', new_ambit_path %>

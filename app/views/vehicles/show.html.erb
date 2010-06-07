@@ -1,0 +1,43 @@
+<p>
+  <b>Tipo:</b>
+  <%=h @vehicle.tipo %>
+</p>
+
+<p>
+  <b>Targa:</b>
+  <%=h @vehicle.targa %>
+</p>
+
+<p>
+  <b>Modello:</b>
+  <%=h @vehicle.modello %>
+</p>
+
+<p>
+  <b>Colore:</b>
+  <%=h @vehicle.colore %>
+</p>
+ 
+<b> Nome: </b>
+<ul>
+    <% @vehicle.name_vehicles.each do |join| %>
+      	<li><%= link_to join.name.cognome_nome, :controller => :names, :action => :show, :id => join.name.id %>
+					<%=h join.name.luogo_nascita %>
+					<%=h join.name.data_nascita %>
+					<b><%=h join.tipo_relazione %></b><br>
+					data inizio relazione
+					<%=h join.inizio_relazione %><br>
+					data fine relazione
+					<%=h join.fine_relazione %>
+		</li>	
+    <% end %>
+</ul>
+<p>
+  <b>Note:</b>
+  <%=h @vehicle.note %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
+<%= link_to 'Back', vehicles_path %>

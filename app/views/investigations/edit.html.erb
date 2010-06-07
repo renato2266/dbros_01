@@ -1,0 +1,48 @@
+<h1>Editing indagine</h1>
+
+<% form_for(@investigation) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :indagine %><br />
+    <%= f.text_field :indagine %>
+  </p>
+  <p>
+    <%= f.label :reparto %><br />
+    <%= f.text_field :reparto %>
+  </p>
+  <p>
+    <%= f.label :data_inizio %><br />
+    <%= f.date_select :data_inizio %>
+  </p>
+  <p>
+    <%= f.label :data_fine %><br />
+    <%= f.date_select :data_fine, :include_blank=>true %>
+  </p>
+  <p>
+    <%= f.label :note_indagine %><br />
+    <%= f.text_area :note_indagine %>
+  </p>
+Name:<br/>
+<div style="width:400px;height:400px;overflow-y: scroll; border:1px solid black;">
+	<table border="3">
+			<tr>
+			<td>
+		        <% @names.each do |name|  %>
+		          <%= check_box_tag "investigation[name_ids][]", name.id, @investigation.names.include?(name) %>
+		          <%= name.cognome_nome %>
+				  <%= name.luogo_nascita %>
+			      <%= name.data_nascita %> 
+					<br/>	
+		       <%end%>
+		 </td>
+		</tr>
+		</table>
+</div>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @investigation %> |
+<%= link_to 'Back', investigations_path %>

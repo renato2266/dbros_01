@@ -1,0 +1,255 @@
+<table>
+  <tr>
+    <th>Telefono - apparati </th>
+    <th>Dati procura</th>
+	<th> zzzzzzzzz</th>
+  </tr>
+  <tr>
+    <td>
+	<p>
+  Nr protocollo:
+ <b> <%=h @interception.nr_protocollo %></b>
+</p>
+<p>
+  Nr telefono:
+  <b><%=h @interception.nr_telefono %></b>
+</p>
+
+<p>
+  Nr imei:
+  <b><%=h @interception.nr_imei %></b>
+</p>
+
+<p>
+  Ambientale:
+ <b> <%=h @interception.ambientale %></b>
+</p>
+
+<p>
+  Apparato:
+<b>  <%=h @interception.apparato %></b>
+</p>
+<p>
+  Postazione:
+ <b> <%=h @interception.postazione %></b>
+</p>
+
+<p>
+  Borchia:
+ <b> <%=h @interception.borchia %></b>
+</p>
+
+<p>
+  PP:
+ <b> <%=h @interception.P_P %></b>
+</p>
+
+<p>
+  Decreto:
+ <b> <%=h @interception.decreto %></b>
+</p>
+
+<p>
+  Ag:
+ <b> <%=h @interception.ag %> </b>
+</p>
+
+<p>
+  Ln tim:
+  <b> <%=h @interception.ln_tim %></b>
+</p>
+
+<p>
+  Ln vodafone:
+   <b><%=h @interception.ln_vodafone %></b>
+</p>
+
+<p>
+  Ln wind:
+   <b><%=h @interception.ln_wind %></b>
+</p>
+
+<p>
+  Ln sparkle:
+   <b><%=h @interception.ln_sparkle %></b>
+</p>
+
+<p>
+  Wind int:
+   <b><%=h @interception.wind_int %></b>
+</p>
+
+<p>
+  Ln infostrada:
+   <b><%=h @interception.ln_infostrada %></b>
+</p>
+
+<p>
+  Ln cew:
+   <b><%=h @interception.ln_CeW %></b>
+</p>
+
+<p>
+  Ln eutelia:
+   <b><%=h @interception.ln_eutelia %></b>
+</p>
+
+<p>
+  Ln telecom:
+  <b> <%=h @interception.ln_telecom %></b>
+</p>
+
+<p>
+  Ln bt:
+   <b><%=h @interception.ln_bt %></b>
+</p>
+
+<p>
+  Ln albacom:
+  <b> <%=h @interception.ln_albacom %></b>
+</p>
+
+<p>
+  Ln h3g:
+   <b><%=h @interception.ln_h3g %></b>
+</p>
+</td>
+
+<td>
+
+<p>
+  Data attivazione:
+   <b><%=h @interception.data_attivazione %></b>
+</p>
+
+<p>
+  Data termine:
+   <b><%=h @interception.data_termine %></b>
+</p>
+
+<p>
+  Nr cd dvd:
+   <b><%=h @interception.nr_cd_dvd %></b>
+</p>
+
+<p>
+  Cd dvd atti:
+   <b><%=h @interception.cd_dvd_atti ? 'Yes' : 'No' %></b>
+</p>
+
+<p>
+  Verbale inizio:
+  <b> <%=h @interception.verbale_inizio ? 'Yes' : 'No' %></b>
+</p>
+
+<p>
+  Verbale fine:
+  <b> <%=h @interception.verbale_fine ? 'Yes' : 'No'%></b>
+</p>
+
+<p>
+  Brogliaccio:
+   <b><%=h @interception.brogliaccio ? 'Yes' : 'No' %></b>
+</p>
+
+<p>
+  Deposito cd dvd:
+   <b><%=h @interception.deposito_cd_dvd  ? 'Yes' : 'No' %></b>
+</p>
+
+<p>
+  Deposito gps:
+   <b><%=h @interception.deposito_gps ? 'Yes' : 'No' %></b>
+</p>
+
+<p>
+  Scadenza:
+  <b> <%=h @interception.scadenza %></b>
+</p>
+
+<p>
+  Cessata:
+   <b><%=h @interception.cessata ? 'Yes' : 'No'%></b>
+</p>
+
+<p>
+  E mail appoggio:
+  <b> <%=h @interception.e_mail_appoggio %></b>
+</p>
+
+<p>
+  Rif wind:
+  <b> <%=h @interception.rif_wind %></b>
+</p>
+
+<p>
+  In scadenza:
+  <b> <%=h @interception.in_scadenza ? 'Yes' : 'No' %></b>
+</p>
+
+<p>
+  Rif vodafone:
+  <b> <%=h @interception.rif_vodafone %></b>
+</p>
+
+<p>
+  Positioning:
+  <b> <%=h @interception.positioning ? 'Yes' : 'No' %></b>
+</p>
+
+<p>
+  E mail positioning:
+   <b><%=h @interception.e_mail_positioning %></b>
+</p>
+
+<p>
+  Procedura:
+  <b> <%=h @interception.procedura %></b>
+</p>
+
+<p>
+  Operatore:
+   <b><%=h @interception.operatore %></b>
+</p>
+
+<p>
+  Magistratro:
+  <b> <%=h @interception.magistratro %></b>
+</p>
+
+<p>
+  Data decreto:
+   <b><%=h @interception.data_decreto %></b>
+</p>
+
+<p>
+  Alias linea:
+   <b><%=h @interception.alias_linea %></b>
+</p>
+</td>
+<td>
+	
+<p>
+  Name:
+<% if @interception.name.nil? %>
+	Nil!
+<% else %>
+   <b><%= link_to @interception.name.cognome_nome, :controller => :names, :action => :show, :id => @interception.name.id%></b>
+<%end%>
+</p>
+
+<p>
+  Investigation:
+<% if @interception.investigation.nil? %>
+     Nil!
+<% else %>
+   <b><%= link_to @interception.investigation.indagine, :controller => :investigations, :action => :show, :id => 
+	@interception.investigation.id%> </b>
+<%end%>
+</p>
+</td>
+</th>
+</table>
+
+<%= link_to 'Edit', edit_interception_path(@interception) %> |
+<%= link_to 'Back', interceptions_path %>

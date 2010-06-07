@@ -1,0 +1,54 @@
+<h1>New dossier</h1>
+
+<table>
+  <tr>
+	<td>
+<% form_for @dossier, :html => { :multipart => true } do |f| %>
+  <%= f.error_messages %>
+
+<p>
+ <%= f.file_field :documento %>
+</p>
+
+  <p>
+    <%= f.label :numero %><br />
+    <%= f.text_field :numero %>
+  </p>
+  <p>
+    <%= f.label :data %><br />
+    <%= f.date_select :data %>
+  </p>
+  <p>
+    <%= f.label :oggetto %><br />
+    <%= f.text_area :oggetto %>
+  </p>
+  <p>
+    <%= f.label :testo %><br />
+    <%= f.text_area :testo %>
+  </p>
+</td>
+
+	<td>
+<p>
+	<%= f.label :names %><br />
+	<%= f.collection_select :name_ids, @names, :id, :cognome_nome, {}, :multiple => true%>
+ </p>
+<p>
+	<%= f.label :societies %><br />
+	<%= f.collection_select :society_ids, @societies, :id, :denominazione, {}, :multiple => true%>
+ </p>
+
+<p>
+	<%= f.label :associations %><br />
+	<%= f.collection_select :association_ids, @associations, :id, :associazione_criminale, {}, :multiple => true%>
+ </p>
+</td>
+  </tr>
+</table>
+
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', dossiers_path %>

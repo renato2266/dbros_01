@@ -1,0 +1,20 @@
+<p>
+  Area criminale:
+  <b><%=h @area.area_criminale %> </b>
+
+</p>
+
+<p>
+  Ambito criminale:
+  <b> <%=h @ambit.ambito_criminale%></b>
+
+</p>
+
+<p>
+  Note area:
+  <%=h @area.note_area %>
+</p>
+
+
+<%= link_to 'Edit', edit_area_path(@area) %> |
+<%= link_to 'Back', areas_path %>

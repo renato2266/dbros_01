@@ -1,0 +1,18 @@
+<h1>Lista soggetti</h1>
+
+
+<% form_tag names_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :cognome_nome => nil %>
+  </p>
+<% end %>
+
+<%= render :partial => "names", :local => {:names => @names} %>
+<br />
+
+<%= will_paginate @names %>
+
+<%= link_to 'Nuovo soggetto', new_name_path %>
+
+

@@ -1,0 +1,45 @@
+<h1>Editing gallery</h1>
+
+<% form_for @gallery, :html => { :multipart => true } do |f| %>
+  <%= f.error_messages %>
+
+
+<p align=center>
+    <%= link_to image_tag @gallery.photo.url(:small) %>
+  </p>
+
+<%= f.file_field :photo %>
+
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </p>
+
+Name:<br/>
+<div style="width:400px;height:400px;overflow-y: scroll; border:1px solid black;">
+	<table border="3">
+			<tr>
+			<td>
+		        <% @names.each do |name|  %>
+		          <%= check_box_tag "gallery[name_ids][]", name.id, @gallery.names.include?(name) %>
+		          <%= name.cognome_nome %>
+				  <%= name.luogo_nascita %>
+			      <%= name.data_nascita %> 
+					<br/>	
+		       <%end%>
+		 </td>
+		</tr>
+		</table>
+</div>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @gallery %> |
+<%= link_to 'Back', galleries_path %>

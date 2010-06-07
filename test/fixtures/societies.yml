@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  denominazione: MyString
+  forma_giuridica: MyString
+  sede: MyString
+  cf_pi: MyString
+  descrizione: MyText
+
+two:
+  denominazione: MyString
+  forma_giuridica: MyString
+  sede: MyString
+  cf_pi: MyString
+  descrizione: MyText

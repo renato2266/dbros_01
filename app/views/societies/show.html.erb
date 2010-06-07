@@ -1,0 +1,63 @@
+<p>
+  <b>Denominazione:</b>
+  <%=h @society.denominazione %>
+</p>
+
+<p>
+  <b>Forma giuridica:</b>
+  <%=h @society.forma_giuridica %>
+</p>
+
+  <b>Sede:</b>
+  <%=h @society.sede %>
+</p>
+
+<p>
+  <b>Cf pi:</b>
+  <%=h @society.cf_pi %>
+</p>
+
+<p>
+  <b>Descrizione:</b>
+  <%=h @society.descrizione %>
+</p>
+
+<b>Elenco soggetti</b>
+<ul>
+    <% @names.each do |name| %>
+      <li><%= link_to name.cognome_nome, :controller => :names, :action => :show, :id => name.id %></li>
+    <% end %>
+  </ul>
+<table>
+	
+	<table>
+		<th>Documenti</th>
+		<th>Numero</th>
+		<th>Data</th>
+		<th>Oggetto</th>
+		<tr>
+			<% @dossiers.each do |dossier|%>
+			<td><%= link_to "Documento", dossier, :controller => :dossiers, :action => :show, :id => dossier.id%></td>
+			<td><%= dossier.numero%></td>
+			<td width=90px><%= dossier.data%></td>
+			<td><%= dossier.oggetto%></td><br>
+			</tr>
+			<%end%>
+		</table>
+		
+<p>
+	Numero fascicolo:
+			<% if @fascicles.nil? %>
+		      Nil!
+		    <% else %>
+
+			<% @fascicles.each do |fascicle| %>
+			
+		      <%= link_to fascicle.numero, :controller => :fascicles, :action => :show, :id => fascicle.id %><br/>
+			<%end%>
+			<%end%>
+		</p>
+
+
+<%= link_to 'Edit', edit_society_path(@society) %> |
+<%= link_to 'Back', societies_path %>
